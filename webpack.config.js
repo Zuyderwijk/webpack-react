@@ -25,6 +25,13 @@ module.exports = {
                 ]
             },
             {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loaders: [
+                    'url?limit=8192',
+                    'img'
+                ]
+            },
+            {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loaders: [
