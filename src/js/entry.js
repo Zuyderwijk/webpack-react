@@ -1,9 +1,9 @@
 // Import CSS
-import '../css/master.scss';
+import '../css/style.scss';
 
-// Import React and JS
-import HelloBox from './HelloBox';
-import React from 'react';
+// Import React and Components
+var React = require('react')
+var Root = require('./components/CommentBox.js')
 
 // Render!
-React.render(<HelloBox />, document.getElementsByTagName('body')[0]);
+React.render(<CommentBox />, document.getElementById('content'));
