@@ -4,8 +4,6 @@ var webpack = require('webpack'),
     srcPath = path.join(__dirname, 'src');
 
 module.exports = {
-    target: 'web',
-    cache: true,
     entry: getEntrySrc(['./src/entry.js']),
     common: ['react', 'react-router', 'alt'],
     resolve: {
@@ -17,16 +15,20 @@ module.exports = {
         publicPath: 'http://localhost:8080/',
         filename: 'build/bundle.js'
     },
+
     devtool: 'eval',
     devServer: {
         contentBase: './tmp',
-        historyApiFallback: true
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        progress: true
     },
 
     module: {
         preLoaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'source-map'
             }
@@ -50,23 +52,23 @@ module.exports = {
                 ]
             },
             {
-                test: /\.jsx?$/,
+                test: /\.js?$/,
                 exclude: /(node_modules|bower_components)/,
                 loaders: [
                     'react-hot',
-                    'babel?stage=0'
+                    'babel?stage=1'
                 ]
             }
         ]
     },
+
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
         new HtmlWebpackPlugin({
             title: 'Webpack en React',
             template: 'src/index.html', // Load a custom template
             inject: 'body' // Inject all scripts into the body
         }),
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
 
