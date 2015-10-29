@@ -36,8 +36,10 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
-    "alt": "^0.17.6",
+    "alt": "^0.17.7",
+    "array.prototype.findindex": "^1.0.0",
     "babel-runtime": "^5.8.29",
+    "node-uuid": "^1.4.3",
     "react": "^0.13.3",
     "react-router": "^0.13.4"
   }

@@ -8,7 +8,7 @@ module.exports = {
     common: ['react', 'react-router', 'alt'],
     resolve: {
         root: srcPath,
-        extensions: ['', '.js'],
+        extensions: ['', '.js', '.jsx', '.html'],
         modulesDirectories: ['node_modules', 'src']
     },
     output: {
@@ -28,7 +28,7 @@ module.exports = {
     module: {
         preLoaders: [
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'source-map'
             }
@@ -52,7 +52,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loaders: [
                     'react-hot',
